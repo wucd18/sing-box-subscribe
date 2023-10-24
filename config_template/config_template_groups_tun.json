@@ -242,7 +242,7 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "proxy",
+    "final": "✈️ Proxy",
     "geoip": {
       "download_url": "https://ghproxy.com/github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db",
       "download_detour": "direct"
@@ -271,7 +271,7 @@
       },
       {
         "clash_mode": "global",
-        "outbound": "proxy"
+        "outbound": "✈️ Proxy"
       },
       {
         "domain": [
