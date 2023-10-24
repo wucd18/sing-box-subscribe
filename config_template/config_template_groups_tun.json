@@ -8,7 +8,7 @@
       {
         "tag": "proxyDns",
         "address": "8.8.8.8",
-        "detour": "proxy"
+        "detour": "✈️ Proxy"
       },
       {
         "tag": "localDns",
@@ -101,7 +101,7 @@
   ],
   "outbounds": [
     {
-      "tag":"proxy",
+      "tag":"✈️ Proxy",
       "type":"selector",
       "outbounds":[
         "auto",
@@ -113,17 +113,17 @@
       "tag":"🤖 OpenAI",
       "type":"selector",
       "outbounds":[
+        "✈️ Proxy",
         "direct",
         "{all}"
-      ],
-      "filter":[
-        {"action":"exlude","keywords":["🇭🇰|HK|hk|香港|港"]}
       ]
     },
     {
       "tag":"🌌 Google",
       "type":"selector",
       "outbounds":[
+        "✈️ Proxy",
+        "direct",
         "{all}"
       ]
     },
@@ -131,6 +131,8 @@
       "tag":"📟 Telegram",
       "type":"selector",
       "outbounds":[
+        "✈️ Proxy",
+        "direct",
         "{all}"
       ]
     },
@@ -138,6 +140,8 @@
       "tag":"🐦 Twitter",
       "type":"selector",
       "outbounds":[
+        "✈️ Proxy",
+        "direct",
         "{all}"
       ]
     },
@@ -145,13 +149,16 @@
       "tag":"👤 Facebook",
       "type":"selector",
       "outbounds":[
+        "✈️ Proxy",
+        "direct",
         "{all}"
       ]
     },
     {
-      "tag":"🛍️ Amazon",
+      "tag":"💒 YOUTUBE",
       "type":"selector",
       "outbounds":[
+       "✈️ Proxy",
         "direct",
         "{all}"
       ]
@@ -160,6 +167,7 @@
       "tag":"🍎 Apple",
       "type":"selector",
       "outbounds":[
+        "✈️ Proxy",
         "direct",
         "{all}"
       ]
@@ -168,41 +176,43 @@
       "tag":"🧩 Microsoft",
       "type":"selector",
       "outbounds":[
+        "✈️ Proxy",
         "direct",
         "{all}"
       ]
     },
     {
-      "tag":"🎮 Game",
+      "tag":"🌍 Spotify",
       "type":"selector",
       "outbounds":[
+       "✈️ Proxy",
         "direct",
         "{all}"
       ]
     },
     {
-      "tag":"📺 Bilibili",
+      "tag":"📺 Disney",
       "type":"selector",
       "outbounds":[
-        "direct",
-        "{all}"
-      ],
-      "filter":[
-        {"action":"include","keywords":["🇭🇰|HK|hk|香港|港|🇹🇼|TW|tw|台湾|臺灣|台"]}
-      ]
-    },
-    {
-      "tag":"🎬 MediaVideo",
-      "type":"selector",
-      "outbounds":[
+        "✈️ Proxy",
         "direct",
         "{all}"
       ]
     },
     {
-      "tag":"🌏 !cn",
+      "tag":"🔥 NETFLIX",
       "type":"selector",
       "outbounds":[
+       "✈️ Proxy",
+        "direct",
+        "{all}"
+      ]
+    },
+    {
+      "tag":"📲 国外代理",
+      "type":"selector",
+      "outbounds":[
+       "✈️ Proxy",
         "direct",
         "{all}"
       ]
@@ -278,7 +288,7 @@
       },
       {
         "geosite":"youtube",
-        "outbound":"🌌 Google"
+        "outbound":"💒 YOUTUBE"
       },
       {
         "geoip":"google",
@@ -313,8 +323,8 @@
         "outbound":"👤 Facebook"
       },
       {
-        "geosite":"amazon",
-        "outbound":"🛍️ Amazon"
+        "geosite":"spotify",
+        "outbound":"🌍 Spotify"
       },
       {
         "geosite":"apple",
@@ -329,24 +339,24 @@
         "outbound":"🧩 Microsoft"
       },
       {
-        "geosite":"category-games",
-        "outbound":"🎮 Game"
+        "geosite":"disney",
+        "outbound":"📺 Disney"
       },
       {
-        "geosite":"bilibili",
-        "outbound":"📺 Bilibili"
+        "geosite":"netflix",
+        "outbound":"🔥 NETFLIX"
       },
       {
         "geoip":"netflix",
-        "outbound":"🎬 MediaVideo"
+        "outbound":"🔥 NETFLIX"
       },
       {
-        "geosite":["tiktok","netflix","hbo","disney","primevideo"],
-        "outbound":"🎬 MediaVideo"
+        "geosite":["tiktok","hbo","primevideo"],
+        "outbound":"📲 国外代理"
       },
       {
         "geosite":"geolocation-!cn",
-        "outbound":"🌏 !cn"
+        "outbound":"📲 国外代理"
       },
       {
         "geoip": ["private","cn"],
