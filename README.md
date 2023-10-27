@@ -16,7 +16,19 @@
 
 比如我搭建的网站 [https://sing-box-subscribe.vercel.app](https://sing-box-subscribe.vercel.app), 在网站后面添加 `/config/URL_LINK`, 此处 `URL_LINK` 指订阅链接
 
-示例：https://sing-box-subscribe.vercel.app/config/https://gist.githubusercontent.com/Toperlock/b1ca381c32820e8c79669cbbd85b68ac/raw/dafae92fbe48ff36dae6e5172caa1cfd7914cda4/gistfile1.txt
+> 在 sing-box 中输入此格式的链接，你可能需要把 `URL_LINK` 里的 `http://` 改为 `https:///`
+
+```
+https://sing-box-subscribe.vercel.app/config/https:///xxxxxxsubscribe?token=123456/&file=https://github.com/Toperlock/sing-box-subscribe/raw/main/config_template/config_template_groups_tun.json`
+```
+
+2023.10.26更新: 支持链接后面增加 `emoji`, `tag`, `prefix`, `UA`, `file`参数用 `&` 连接多个参数, 用法与 `providers.json` 里的参数一样
+
+`/config/URL_LINK/&emoji=1&prefix=♥&UA=v2rayng&file=https://xxxxxxxxx.json`
+
+上面例子表示：开启emoji，节点名前加♥，使用v2rayng用户代理，使用 `https://xxxxxxxxx.json` 作为生成 sing-box 配置模板
+
+示例：https://sing-box-subscribe.vercel.app/config/https://gist.githubusercontent.com/Toperlock/b1ca381c32820e8c79669cbbd85b68ac/raw/dafae92fbe48ff36dae6e5172caa1cfd7914cda4/gistfile1.txt/&file=https://github.com/Toperlock/sing-box-subscribe/raw/main/config_template/config_template_groups_tun.json
 
 ### 演示视频
 
@@ -208,6 +220,7 @@ windows系统建议将命令添加到批处理程序运行。
     "save_config_path": "./config.json",
     "auto_backup": false,
     "exlude_protocol": "ssr" //排除订阅链接里ssr协议节点
+    "config_template": "", //自定义正确的网页json配置模板链接
     "Only-nodes": false //开启时，只输出节点内容(不是完整sing-box配置)
 }
 ```
@@ -277,6 +290,8 @@ windows系统建议将命令添加到批处理程序运行。
 > 使用此设置中的协议的分享链接会被忽略。
 
 > sing-box release中的程序没有支持ssr（需要自己添加参数构建），所以此设置可能有用。
+
+- `config_template`：非必需。输入一个正确的网页json配置模板链接，以此模板生成sing-box配置。
 
 - `Only-nodes`：非必需。
 > 将其设置为 true 或 1 时，只输出订阅链接 sing-box 格式的节点信息
