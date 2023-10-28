@@ -23,8 +23,8 @@ def parse(data):
             'enabled': True,
             'insecure': True
         }
-        if netquery.get('sni'):
-            node['tls']['server_name'] = netquery['sni']
+        if netquery.get('fp'):
+            node['tls']['server_name'] = netquery.get('sni', '')
             node['tls']['utls'] = {
                 'enabled': True,
                 'fingerprint': netquery.get('fp', 'chrome')
@@ -34,6 +34,11 @@ def parse(data):
                 'enabled': True,
                 'public_key': netquery.get('pbk'),
                 'short_id': netquery.get('sid', '')
+            }
+            node['tls']['server_name'] = netquery.get('sni', '')
+            node['tls']['utls'] = {
+                'enabled': True,
+                'fingerprint': netquery.get('fp', 'chrome')
             }
     if netquery.get('type'):
         if netquery['type'] == 'http':
@@ -48,7 +53,7 @@ def parse(data):
                     "Host": netquery.get('sni', netquery.get('host', ''))
                 }
             }
-            if '?ed' in netquery.get('path'):
+            if '?ed=' in netquery.get('path'):
                 node['transport']['early_data_header_name'] = 'Sec-WebSocket-Protocol'
                 node['transport']['max_early_data'] = int(netquery.get('path').rsplit("?ed=")[1])
         if netquery['type'] == 'grpc':
