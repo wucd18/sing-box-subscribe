@@ -28,7 +28,8 @@
       {
         "domain": [
           "ghproxy.com",
-          "cdn.jsdelivr.net"
+          "cdn.jsdelivr.net",
+          "testingcf.jsdelivr.net"
         ],
         "server": "localDns"
       },
@@ -218,6 +219,22 @@
       ]
     },
     {
+      "tag":"🌏 cn",
+      "type":"selector",
+      "outbounds":[
+        "direct",
+        "proxy"
+      ]
+    },
+    {
+      "tag":"🛑 AdBlock",
+      "type":"selector",
+      "outbounds":[
+        "block",
+        "direct"
+      ]
+    },
+    {
       "tag":"auto",
       "type":"urltest",
       "outbounds":[
@@ -244,11 +261,11 @@
     "auto_detect_interface": true,
     "final": "✈️ Proxy",
     "geoip": {
-      "download_url": "https://ghproxy.com/github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.db",
+      "download_url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db",
       "download_detour": "direct"
     },
     "geosite": {
-      "download_url": "https://ghproxy.com/github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.db",
+      "download_url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db",
       "download_detour": "direct"
     },
     "rules": [
@@ -263,7 +280,7 @@
       },
       {
         "geosite": "category-ads-all",
-        "outbound": "block"
+        "outbound": "🛑 AdBlock"
       },
       {
         "clash_mode": "direct",
@@ -360,11 +377,11 @@
       },
       {
         "geoip": ["private","cn"],
-        "outbound": "direct"
+        "outbound": "🌏 cn"
       },
       {
         "geosite": "cn",
-        "outbound": "direct"
+        "outbound": "🌏 cn"
       }
     ]
   },
